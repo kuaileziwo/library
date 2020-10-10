@@ -16,7 +16,7 @@ dependencies {
 
 ---
 [//]: #----------------------------------WorkClass
-### WorkClass
+### **WorkClass**
 WorkClass、WorkField、EWorkHandler 配合使用
 >WorkClass属性说明
 * __id__: layout资源id（必须）
@@ -84,7 +84,7 @@ public class TestEntity {
 
 ---
 [//]: ----------------------------------PropertiesConfiguration
-### PropertiesConfiguration
+### **PropertiesConfiguration**
 
 >**使用例子**
 ```
@@ -94,7 +94,7 @@ public class PropertiesConfig {
   protected boolean onSave(Properties props, StringBuilder comment) {
     int i = 1;
     comment.append(DateUtils.now("yyyy年MM月dd日 HH:mm:ss")).append(LINE_SEPARATOR);
-    comment.append("#").append(i++).append("、").append(CProperty.FILE_SAVE_DAYS).append(": 文件保存的天数，大于0才有用").append(LINE_SEPARATOR);
+    comment.append("#").append(i++).append("、xxx");
      return false;
   }
 
