@@ -21,7 +21,7 @@ android {
     }
 }
 
-第三步：Application类添加如下配置
+第三步：Application类中初始化
 @Override
 public void onCreate() {
     super.onCreate();
