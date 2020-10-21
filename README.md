@@ -13,6 +13,7 @@ dependencies {
 ## 目录
 - [WorkClass、WorkField、EWorkHandler](#WorkClass)
 - [PropertiesConfiguration](#PropertiesConfiguration)
+- [EnableTipMessage、ETipProcessor](#TipMessage)
 
 ---
 [//]: #----------------------------------WorkClass
@@ -99,4 +100,23 @@ public class PropertiesConfig {
   }
 
 }
+```
+
+---
+```[//]: ----------------------------------TipMessage
+### **TipMessage**
+
+>**使用例子**
+```
+第一步：配置允许TipMessage
+@EnableTipMessage
+public class MyApplication extends Application {
+}
+
+第二步：代码使用
+TipMessage.newBuilder(this)
+        .setMessage("第1次有图")
+        .setDrawable(getResources().getDrawable(R.drawable.lib_smart_image_view_load_failure))
+        .setMsgType(TipMessage.MSG_TOAST)
+        .show();
 ```
