@@ -10,7 +10,18 @@ dependencies {
     annotationProcessor "com.library:mylib-compiler:[1.0.0,)"
 }
 
-第二步：Application类添加如下配置
+第二步：非app模块添加（app模块跳过）
+android {
+    defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [mylib_module_name: project.getName()]
+            }
+        }
+    }
+}
+
+第三步：Application类添加如下配置
 @Override
 public void onCreate() {
     super.onCreate();
