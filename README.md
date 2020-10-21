@@ -103,7 +103,7 @@ public class PropertiesConfig {
 ```
 
 ---
-```[//]: ----------------------------------TipMessage
+[//]: ----------------------------------TipMessage
 ### **TipMessage**
 
 >**使用例子**
