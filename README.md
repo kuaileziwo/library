@@ -4,9 +4,20 @@
 
 >**添加依赖和配置**
 ```
+第一步：添加依赖
 dependencies {
     compile "com.library:mylib-api:[1.0.0,)"
     annotationProcessor "com.library:mylib-compiler:[1.0.0,)"
+}
+
+第二步：Application类添加如下配置
+@Override
+public void onCreate() {
+    super.onCreate();
+    if (BuildConfig.DEBUG) {
+      MyLib.openDebug();
+    }
+    MyLib.init(this);
 }
 ```
 
