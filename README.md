@@ -33,14 +33,14 @@ public void onCreate() {
 ```
 
 ## 目录
-- [WorkClass、WorkField、EWorkHandler](#WorkClass)
+- [WorkClass、WorkField、EWorkProcessor](#WorkClass)
 - [PropertiesConfiguration](#PropertiesConfiguration)
 - [EnableTipMessage、ETipProcessor](#TipMessage)
 
 ---
 [//]: #----------------------------------WorkClass
 ### **WorkClass**
-WorkClass、WorkField、EWorkHandler 配合使用
+WorkClass、WorkField、EWorkProcessor 配合使用
 >WorkClass属性说明
 * __id__: layout资源id（必须）
 * __idGone__: 隐藏的资源id（可选）
@@ -49,15 +49,15 @@ WorkClass、WorkField、EWorkHandler 配合使用
 * __id__: 资源id（必须）
 * __label__: 标签（可选）
 * __inherited__: 是否可以被继承，默认false
->EWorkHandler属性说明
+>EWorkProcessor属性说明
 * __value__: 优先级，数值越小表示优先级越高（必须）
 
 >**使用例子**
 
-WorkHandler处理类全局配置一个即可
+EWorkProcessor处理类全局配置一个即可
 ```
-@EWorkHandler(0)
-public class WorkHandler implements com.mylib.inf.WorkHandler {
+@EWorkProcessor(sort = 100)
+public class DefaultWorkProcessor implements WorkProcessor {
   @Override
     public boolean setViewValue(View view, Object value, ExtraData extraData) {
       if (value instanceof Drawable) {
@@ -130,7 +130,17 @@ public class PropertiesConfig {
 
 >**使用例子**
 ```
-第一步：配置允许TipMessage
+第一步：配置处理器
+@ETipProcessor(sort = 100)
+public class MsgProcessor implements TipProcessor {
+  @Override
+  public boolean show(TipProcessorEvent event) {
+    // TODO
+    return false;
+  }
+}
+
+第二步：Application配置允许TipMessage
 @EnableTipMessage
 public class MyApplication extends Application {
 }
